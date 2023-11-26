@@ -1,9 +1,3 @@
-# go-server-boilerplate
-Go server boilerplate for future projects
-
-go build && clear && ./system_api
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -26,12 +20,12 @@ go build && clear && ./system_api
 </a>
 
 <div align="left">
-  <h1><em>~rustyNES</em></h1>
+  <h1><em>~go-server</em></h1>
 </div>
 
 <!-- ABOUT THE PROJECT -->
 
-An NES emulator and implementation of 6502 processor written in Rust. I always wanted to learn to emulate hardware. For this task, I chose a language that is memory-safe, compiled, free-form, and statically-type, and commonly used in systems programming.
+A template for developing concurrent http servers in Go
 
 ### Built With
 
@@ -46,25 +40,21 @@ To get a local copy of the project up and running on your machine, follow these 
 
 ### Prerequisites
 
-- Visual Studio Code
-  - Extensions in [extensions.json](.vscode/extensions.json) are installed
-- Pre-commit
-  - [pre-commit](https://pre-commit.com/#install) is configured via the [pre-commit framework](https://verdantfox.com/blog/view/how-to-use-git-pre-commit-hooks-the-hard-way-and-the-easy-way)
+Before attempting to build this project, make sure you have [Go](https://go.dev/doc/install) installed on your machine.
 
 ### Installation
 
+To get a local copy of the project up and running on your machine, follow these simple steps:
+
 1. Clone the repo
    ```sh
-   git clone https://github.com/Kaweees/rustyNES.git
-   cd rustyNES
+   git clone https://github.com/Kaweees/go-server.git
+   cd go-server
    ```
-2. Install pre-commit hooks
+2. Install the project dependencies 
    ```sh
-   pip install pre-commit
-   pre-commit install
-   pre-commit autoupdate --bleeding-edge
+   go mod tidy
    ```
-3.
 
 <!-- USAGE EXAMPLES -->
 
@@ -82,21 +72,35 @@ Here is a list of all the available commands:
 
 _For more examples, please refer to the [Go Command Documentation](https://go.dev/doc/cmd)_
 
+<!-- PROJECT FILE STRUCTURE -->
+
+## Project Structure
+
+```
+. go-server/
+├── logger.go                      - 
+├── main.go                        -
+├── README.md                      - you are here
+├── request_handler.go             -
+├── request_types.go               -
+└── response_types.go              -
+```
+
 <!-- LICENSE -->
 <!-- https://choosealicense.com/ -->
 
 ## License
 
-rustyNES is distributed under the terms of the GNU General Public License v3.0, as I firmly believe that collaborating on free and open-source software fosters innovations that mutually and equitably beneficial to both collaborators and users alike. See [LICENSE](LICENSE) for details and more information.
+go-server is distributed under the terms of the GNU General Public License v3.0, as I firmly believe that collaborating on free and open-source software fosters innovations that mutually and equitably beneficial to both collaborators and users alike. See [LICENSE](LICENSE) for details and more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Kaweees/rustyNES.svg?style=for-the-badge
-[contributors-url]: https://github.com/Kaweees/rustyNES/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Kaweees/rustyNES.svg?style=for-the-badge
-[forks-url]: https://github.com/Kaweees/rustyNES/network/members
-[stars-shield]: https://img.shields.io/github/stars/Kaweees/rustyNES.svg?style=for-the-badge
-[stars-url]: https://github.com/Kaweees/rustyNES/stargazers
+[contributors-shield]: https://img.shields.io/github/contributors/Kaweees/go-server.svg?style=for-the-badge
+[contributors-url]: https://github.com/Kaweees/go-server/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Kaweees/go-server.svg?style=for-the-badge
+[forks-url]: https://github.com/Kaweees/go-server/network/members
+[stars-shield]: https://img.shields.io/github/stars/Kaweees/go-server.svg?style=for-the-badge
+[stars-url]: https://github.com/Kaweees/go-server/stargazers
 
 <!-- MARKDOWN SHIELD BADGES & LINKS -->
 <!-- https://github.com/Ileriayo/markdown-badges -->
