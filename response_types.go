@@ -1,3 +1,5 @@
+package main
+
 // Represents the response types of GetExample()
 type GetExampleResponse struct {
 	Result string `json:"value"`

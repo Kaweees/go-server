@@ -26,14 +26,23 @@
         - run: lsb_release -a
         - run: uname -a
         - name: Check out Repository Code
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
+        - run: ls -la
+        - run: echo $(grep -oP 'go (\d+\.)?(\d+\.)?(\*|\d+)' ./go.mod | awk '{print $2}' | tr -d '[:space:]')
+        - id: setup-go
+          run: | 
+            go_version=$(awk '/^go / {print $2}' go.mod)
+            echo $go_version
+            echo ::set-output name=go_version::$go_version
+            echo "{go_version}={$(awk '/^go / {print $2}' go.mod)}" >> $GITHUB_OUTPUT
         - name: Set up Go
           uses: actions/setup-go@v4
           with:
-            go-version: $(grep -oP 'go \d+\.\d+' go.mod | awk '{print $2}')
+            # The Go version to download (if necessary) and use.
+            go-version: ${{ steps.setup-go.outputs.go_version }}
         - name: Install dependencies
           run: go get .
         - name: Build
-          run: go build -v ./...
+          run: go build -v
         - name: Test with the Go CLI
           run: go test

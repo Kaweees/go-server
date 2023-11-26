@@ -1,15 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"os/exec"
-	"strconv"
-	"strings"
-	"time"
-
-	"github.com/theojulienne/go-wireless"
-)
-
 type RequestHandler struct {}
 
 func NewRequestHandler() (*RequestHandler, error) {

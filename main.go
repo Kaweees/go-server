@@ -4,6 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
 )
 
 func handleGetExample(w http.ResponseWriter, r *http.Request) {
@@ -14,7 +17,7 @@ func handleGetExample(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 
 	// Build the response content as a JSON struct
-	responseContent, err := RequestHandler.GetExample()
+	responseContent, err := requestHandler.GetExample()
 
 	// Check if there was an error
 	if err != nil {
@@ -53,7 +56,7 @@ func handlePostExample(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Build the response content as a JSON struct
-	responseContent, err := RequestHandler.PostExample(request.value, request.anothervalue)
+	responseContent, err := requestHandler.PostExample(request.Value, request.AnotherValue)
 
 	// Check if there was an error
 	if err != nil {
@@ -85,9 +88,9 @@ func init() {
 	initalizeLogger()
 
 	// Initialize the Wi-Fi handler
-	RequestHandler, err = RequestHandler()
+	requestHandler, err = NewRequestHandler()
 	if err != nil {
-		Log.Error(fmt.Sprintf("Error initializing wifi handler: %v", err))
+		Log.Error(fmt.Sprintf("Error initializing the request handler: %v", err))
 		return
 	}
 }
