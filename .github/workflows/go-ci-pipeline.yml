@@ -1,0 +1,39 @@
+---
+  name: CI/CD Pipeline for Go Server
+  # Controls when the workflow will run
+  on:
+    push:
+      branches:
+        - development
+        - main
+        - master
+        - "[0-9]+.[0-9]+.x"
+    pull_request:
+      branches:
+        - development
+        - main
+        - master
+        - "[0-9]+.[0-9]+.x"
+    workflow_dispatch:
+  
+  # The sequence of runs in this workflow:
+  jobs:
+    lint:
+      runs-on: ubuntu-latest
+      timeout-minutes: 10
+  
+      steps:
+        - run: lsb_release -a
+        - run: uname -a
+        - name: Check out Repository Code
+          uses: actions/checkout@v3
+        - name: Set up Go
+          uses: actions/setup-go@v4
+          with:
+            go-version: $(grep -oP 'go \d+\.\d+' go.mod | awk '{print $2}')
+        - name: Install dependencies
+          run: go get .
+        - name: Build
+          run: go build -v ./...
+        - name: Test with the Go CLI
+          run: go test
