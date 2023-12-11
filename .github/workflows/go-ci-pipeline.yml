@@ -36,7 +36,7 @@
             echo ::set-output name=go_version::$go_version
             echo "{go_version}={$(awk '/^go / {print $2}' go.mod)}" >> $GITHUB_OUTPUT
         - name: Set up Go
-          uses: actions/setup-go@v4
+          uses: actions/setup-go@v5
           with:
             # The Go version to download (if necessary) and use.
             go-version: ${{ steps.setup-go.outputs.go_version }}
