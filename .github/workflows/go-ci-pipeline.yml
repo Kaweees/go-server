@@ -26,7 +26,7 @@
         - run: lsb_release -a
         - run: uname -a
         - name: Check out Repository Code
-          uses: actions/checkout@v4
+          uses: actions/checkout@v5
         - run: ls -la
         - run: echo $(grep -oP 'go (\d+\.)?(\d+\.)?(\*|\d+)' ./go.mod | awk '{print $2}' | tr -d '[:space:]')
         - id: setup-go
